@@ -4,5 +4,5 @@ a=$1
 b=$2
 #scp $b "$a:~/public_html/trashHolder"
 #scrot "tmp.png" && scp "tmp.png" "$a:~/public_html/trashHolder" && xclip -se c "tmp.png" && rm "tmp.png"
-scrot "tmp.png" && scp "tmp.png" "$a:~/public_html/trashHolder" && rm "tmp.png" && echo -n "$a:~/public_html/trashHolder/tmp.png" | xclip -se c
 #xclip -se c -t image/png -o > "img.png"
+scrot "tmp.png" && scp "tmp.png" "$a:~/public_html/trashHolder" && rm "tmp.png" && echo -n "$a:~/public_html/trashHolder/tmp.png" | xclip -se c
