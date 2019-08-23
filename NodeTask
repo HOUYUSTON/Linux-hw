@@ -1,0 +1,48 @@
+const express = require ("express")
+const app = express ()
+
+const cats = [
+	{
+		id: 1,
+		name: "Brup",
+		color: "Brown",
+		age: 3,
+		sex: "male",
+		breed: "Burmese"
+	},
+	{
+		id: 2,
+		name: "Kotyara",
+		color: "Gray",
+		age: 5,
+		sex: "female",
+		breed: "British"
+	},
+	{
+		id: 3,
+		name: "Lmao",
+		color: "Red",
+		age: 2,
+		sex: "male",
+		breed: "Nyan"
+	}
+]
+
+app.get('/', function(req, res){
+	res.send("Hello World")
+})
+
+app.get('/hellokitty', function(req, res){
+	res.json(cats)
+})
+
+app.get('/kitty/:id', function(req, res){
+	let cat = cats.find(cat => cat.id === Number(req.params.id))
+	cat ?
+		res.json(cat) :
+		res.status(404).json({error: "Kitty not found","status":404})
+})
+
+app.listen(3000, function() {
+	console.log("Running on port 3000")
+})
